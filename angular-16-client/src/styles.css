@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+* {
+}
+
+html, body {
+  padding-bottom: 50px;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  background-image: url('/assets/CT-scanner.jpg');
+  overflow: scroll;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+button:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}

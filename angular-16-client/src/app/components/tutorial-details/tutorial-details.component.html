@@ -1,0 +1,118 @@
+<mat-card class="main-card">
+  <mat-card-title-group>
+    <div class="header-container">
+      <mat-card-title class="page-title">
+        {{ viewMode ? 'Перегляд приладу' : 'Редагування приладу' }}
+      </mat-card-title>
+    </div>
+  </mat-card-title-group>
+
+  <ng-container>
+    <form class="form-layout" *ngIf="currentTutorial">
+      <mat-form-field appearance="outline" class="form-item">
+        <mat-label>Назва</mat-label>
+        <input
+          matInput
+          [readonly]="viewMode"
+          [(ngModel)]="currentTutorial.title"
+          name="title"
+          placeholder="Введіть назву приладу"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-item">
+        <mat-label>Тип</mat-label>
+        <input
+          matInput
+          [readonly]="viewMode"
+          [(ngModel)]="currentTutorial.type"
+          name="type"
+          placeholder="Введіть тип приладу"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-item">
+        <mat-label>Категорія</mat-label>
+        <input
+          matInput
+          [readonly]="viewMode"
+          [(ngModel)]="currentTutorial.category"
+          name="category"
+          placeholder="Введіть категорію"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-item">
+        <mat-label>Опис</mat-label>
+        <textarea
+          matInput
+          rows="6"
+          [readonly]="viewMode"
+          [(ngModel)]="currentTutorial.description"
+          name="description"
+          placeholder="Додайте детальний опис приладу"
+        ></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-item">
+        <mat-label>Технічні характеристики</mat-label>
+        <textarea
+          matInput
+          rows="6"
+          [readonly]="viewMode"
+          [(ngModel)]="currentTutorial.technicalData"
+          name="technicalData"
+          placeholder="Додайте технічні характеристики приладу"
+        ></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-item">
+        <mat-label>Посилання</mat-label>
+        <textarea
+          matInput
+          rows="6"
+          [readonly]="viewMode"
+          [(ngModel)]="currentTutorial.links"
+          name="links"
+          placeholder="Додайте посилання"
+        ></textarea>
+      </mat-form-field>
+
+      <div class="image-container" *ngIf="currentTutorial.photoUrl">
+        <mat-card class="photo-preview">
+          <img [src]="currentTutorial.photoUrl" alt="Зображення приладу" />
+        </mat-card>
+        <div *ngIf="!viewMode && authService.isAdmin" class="photo-actions">
+          <button mat-raised-button color="warn" (click)="deletePhoto()">Видалити зображення</button>
+        </div>
+      </div>
+
+      <div *ngIf="!viewMode && authService.isAdmin && !currentTutorial.photoUrl">
+        <mat-label>Завантажити нове зображення</mat-label>
+        <input type="file" (change)="onFileSelected($event)" />
+      </div>
+    </form>
+
+    <div class="actions">
+      <button mat-raised-button color="primary" routerLink="/tutorials">
+        <mat-icon>arrow_back</mat-icon> Назад
+      </button>
+      <button
+        mat-raised-button
+        color="warn"
+        *ngIf="!viewMode && authService.isAdmin"
+        (click)="deleteTutorial()"
+      >
+        <mat-icon>delete</mat-icon> Видалити
+      </button>
+      <button
+        mat-raised-button
+        color="accent"
+        *ngIf="!viewMode && authService.isAdmin"
+        (click)="updateTutorial()"
+      >
+        <mat-icon>save</mat-icon> Оновити
+      </button>
+    </div>
+  </ng-container>
+</mat-card>

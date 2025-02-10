@@ -1,0 +1,26 @@
+<div class="sign-in-container">
+  <form [formGroup]="signInForm" (ngSubmit)="onSubmit()" class="sign-in-form">
+    <mat-form-field appearance="outline">
+      <mat-label>Імʼя користувача</mat-label>
+      <input matInput formControlName="username" placeholder="Enter your username">
+      <mat-error *ngIf="signInForm.get('username')?.hasError('required')">
+        Username is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Пароль</mat-label>
+      <input matInput formControlName="password" placeholder="Enter your password" type="password">
+      <mat-error *ngIf="signInForm.get('password')?.hasError('required')">
+        Password is required
+      </mat-error>
+      <mat-error *ngIf="signInForm.get('password')?.hasError('minlength')">
+        Password must be at least 6 characters long
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="signInForm.invalid">
+      Увійти
+    </button>
+  </form>
+</div>

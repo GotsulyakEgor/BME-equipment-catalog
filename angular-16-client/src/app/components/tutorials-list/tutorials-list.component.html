@@ -1,0 +1,158 @@
+<div class="categories-block">
+  <div style="background: red;" class="category" (click)="filterByExistingCategory('Спеціалізоване обладнання для терапії')">
+    Спеціалізоване обладнання для терапії
+  </div>
+  <div style="background: green;" class="category" (click)="filterByExistingCategory('Діагностичне медичне обладнання')">
+    Діагностичне медичне обладнання
+  </div>
+  <div style="background: blue;" class="category" (click)="filterByExistingCategory('Обладнання для спортивної медицини та фізичної реабілітації')">
+    Обладнання для спортивної медицини та фізичної реабілітації
+  </div>
+  <div style="background: orange;" class="category" (click)="filterByExistingCategory('Екологічне та енергозбережувальне обладнання – зелені технології')">
+    Екологічне та енергозбережувальне обладнання – зелені технології
+  </div>
+  <div style="background: yellowgreen;" class="category" (click)="filterByExistingCategory('Обладнання для екологічного туризму та біотуризму')">
+    Обладнання для екологічного туризму та біотуризму
+  </div>
+  <div style="background: violet;" class="category" (click)="filterByExistingCategory('Сучасне медичне обладнання лабораторії медико-біологічних досліджень для навчання студентів')">
+    Сучасне медичне обладнання лабораторії медико-біологічних досліджень для навчання студентів
+  </div>
+  <div style="background: teal;" class="category" (click)="filterByExistingCategory('Ендоскопічне обладнання')">
+    Ендоскопічне обладнання
+  </div>
+  <div style="background: salmon;" class="category" (click)="filterByExistingCategory('Обладнання для тривимірного сканування та друку штучних органів')">
+    Обладнання для тривимірного сканування та друку штучних органів
+  </div>
+  <div style="background: navy;" class="category" (click)="filterByExistingCategory('Спеціалізоване обладнання для протезування / ортезування та біопринтингу')">
+    Спеціалізоване обладнання для протезування / ортезування та біопринтингу
+  </div>
+  <div style="background: brown;" class="category" (click)="filterByExistingCategory('Графічні та сенсорні пристрої')">
+    Графічні та сенсорні пристрої
+  </div>
+  <div style="background: darkcyan;" class="category" (click)="filterByExistingCategory('Цифрове обладнання для створення навчального відеоконтенту')">
+    Цифрове обладнання для створення навчального відеоконтенту
+  </div>
+  <div style="background: gold;" class="category" (click)="filterByExistingCategory('3D панорамні стрімові та стерео камери')">
+    3D панорамні стрімові та стерео камери
+  </div>
+  <div style="background: plum;" class="category" (click)="filterByExistingCategory('Роботизовані 3D камери')">
+    Роботизовані 3D камери
+  </div>
+  <div style="background: steelblue;" class="category" (click)="filterByExistingCategory('Технічне оснащення для проведення онлайн лекцій')">
+    Технічне оснащення для проведення онлайн лекцій
+  </div>
+  <div style="background: lightcoral;" class="category" (click)="filterByExistingCategory('Сучасне обладнання для інклюзивної освіти та тренажери')">
+    Сучасне обладнання для інклюзивної освіти та тренажери
+  </div>
+  <div style="background: mediumvioletred;" class="category" (click)="filterByExistingCategory('Вбудовані та роботизовані медичні системи мікроконтролерні плати Raspberry Pi')">
+    Вбудовані та роботизовані медичні системи мікроконтролерні плати Raspberry Pi
+  </div>
+
+  <!-- Добавленные категории -->
+  <div style="background: darkorange;" class="category" (click)="filterByExistingCategory('Обладнання оптичної та цифрової мікроскопії')">
+    Обладнання оптичної та цифрової мікроскопії
+  </div>
+  <div style="background: darkgreen;" class="category" (click)="filterByExistingCategory('Діагностичне обладнання та тренінгові системи')">
+    Діагностичне обладнання та тренінгові системи
+  </div>
+  <div style="background: dodgerblue;" class="category" (click)="filterByExistingCategory('Обладнання для інклюзивної освіти')">
+    Обладнання для інклюзивної освіти
+  </div>
+  <div style="background: indigo;" class="category" (click)="filterByExistingCategory('Обладнання лабораторії спортивної медицини та фізичної реабілітації')">
+    Обладнання лабораторії спортивної медицини та фізичної реабілітації
+  </div>
+  <div style="background: crimson;" class="category" (click)="filterByExistingCategory('Обладнання лабораторії 3D-біомедичних технологій')">
+    Обладнання лабораторії 3D-біомедичних технологій
+  </div>
+  <div style="background: darkslateblue;" class="category" (click)="filterByExistingCategory('Обладнання лабораторії «Аналітичної оптохемотроніки ім. проф. М.М. Рожицького»')">
+    Обладнання лабораторії «Аналітичної оптохемотроніки ім. проф. М.М. Рожицького»
+  </div>
+</div>
+
+<div class="">
+  <div class="header-block">
+    <div class="filters-block">
+      <mat-form-field appearance="outline">
+        <mat-label>Фільтр по категоріям</mat-label>
+        <mat-select [(value)]="selectedCategory" (selectionChange)="filterByCategory()">
+          <mat-option value="">Усі категорії</mat-option>
+          <mat-option *ngFor="let category of categories" [value]="category">
+            {{ category }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary"
+              (click)="resetFilters()"
+              class="add-button">Скинути фільтр
+      </button>
+    </div>
+
+    <div class="search-block">
+      <button mat-raised-button color="primary"
+              *ngIf="authService.isAdmin"
+              (click)="addTutorial()"
+              class="add-button">+ Додати новий прилад
+      </button>
+      <mat-form-field appearance="outline">
+        <mat-label>Пошук по назві</mat-label>
+        <input
+          matInput
+          [(ngModel)]="title"
+          (input)="searchTitle()"
+          placeholder="Пошук по назві"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="table">
+    <table mat-table [dataSource]="filteredTutorials" class="mat-elevation-z8" multiTemplateDataRows>
+
+      <!-- Title Column -->
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Назва</th>
+        <td mat-cell *matCellDef="let tutorial"> {{ tutorial.title }}</td>
+      </ng-container>
+
+      <!-- Type Column -->
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> Модель</th>
+        <td mat-cell *matCellDef="let tutorial"> {{ tutorial.type }}</td>
+      </ng-container>
+
+      <!-- Category Column -->
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef> Категорія</th>
+        <td mat-cell *matCellDef="let tutorial"> {{ tutorial.category }}</td>
+      </ng-container>
+
+      <!-- Description Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Опис</th>
+        <td mat-cell *matCellDef="let tutorial" class="description-cell"> {{ tutorial.description }}</td>
+      </ng-container>
+
+      <!-- Photo Column -->
+      <ng-container matColumnDef="photo">
+        <th mat-header-cell *matHeaderCellDef> Фото</th>
+        <td mat-cell *matCellDef="let tutorial">
+          <img *ngIf="tutorial.photoUrl" [src]="tutorial.photoUrl" alt="Фото" class="table-photo" />
+        </td>
+      </ng-container>
+
+      <!-- Header Row -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <!-- Data Row -->
+      <tr mat-row *matRowDef="let row; let i = index; columns: displayedColumns;"
+          (click)="setActiveTutorial(row, i)"></tr>
+    </table>
+  </div>
+
+
+<!--  <button mat-raised-button color="warn"-->
+<!--          *ngIf="authService.isAdmin" (click)="removeAllTutorials()">-->
+<!--    Видалити усі прилади-->
+<!--  </button>-->
+
+</div>

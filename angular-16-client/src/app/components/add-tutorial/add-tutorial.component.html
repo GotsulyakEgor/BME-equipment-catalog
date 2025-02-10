@@ -1,0 +1,107 @@
+<div class="submit-form">
+  <div *ngIf="!submitted" class="form-container">
+    <button mat-raised-button class="mb-2 back-button" color="primary" routerLink="">
+      Назад
+    </button>
+
+    <h3 class="form-title">Додати новий прилад</h3>
+
+    <div class="form-group">
+      <label for="title">Назва</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        required
+        [(ngModel)]="tutorial.title"
+        name="title"
+        placeholder="Введіть назву приладу"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="type">Тип</label>
+      <input
+        type="text"
+        class="form-control"
+        id="type"
+        required
+        [(ngModel)]="tutorial.type"
+        name="type"
+        placeholder="Введіть тип приладу"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="category">Категорія</label>
+      <input
+        type="text"
+        class="form-control"
+        id="category"
+        required
+        [(ngModel)]="tutorial.category"
+        name="category"
+        placeholder="Введіть категорію"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Опис</label>
+      <textarea
+        class="form-control description-area"
+        id="description"
+        required
+        [(ngModel)]="tutorial.description"
+        name="description"
+        placeholder="Додайте детальний опис приладу"
+        rows="5"
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="technicalData">Технічні характеристики</label>
+      <textarea
+        class="form-control technicalData-area"
+        id="technicalData"
+        required
+        [(ngModel)]="tutorial.technicalData"
+        name="technicalData"
+        placeholder="Додайте технічні характеристики приладу"
+        rows="5"
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="links">Посилання</label>
+      <textarea
+        class="form-control links"
+        id="links"
+        required
+        [(ngModel)]="tutorial.links"
+        name="links"
+        placeholder="Додайте посилання"
+        rows="5"
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="photo">Зображення</label>
+      <input
+        type="file"
+        class="form-control file-input"
+        id="photo"
+        (change)="onFileSelected($event)"
+        name="photo"
+      />
+    </div>
+
+    <button (click)="saveTutorial()" class="btn submit-button" mat-raised-button color="primary">
+      Додати
+    </button>
+  </div>
+
+  <div *ngIf="submitted" class="success-message">
+    <h4>Прилад успішно додано!</h4>
+    <button class="btn btn-success" (click)="newTutorial()">Додати ще один</button>
+  </div>
+</div>

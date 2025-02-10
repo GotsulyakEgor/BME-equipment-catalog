@@ -1,0 +1,39 @@
+<div style="padding-bottom: 50px">
+  <mat-toolbar color="primary" class="navbar">
+    <!-- Логотип и название -->
+    <div class="d-flex align-items-center">
+      <img src="assets/ukraine-flag.png" alt="Logo" class="logo">
+      <span class="navbar-title">Кафедра Біомедичної Інженерії (БМІ)</span>
+    </div>
+
+    <!-- Навигационные ссылки -->
+    <span class="spacer"></span>
+    <button mat-button routerLink="/about-us" routerLinkActive="active">Про Кафедру</button>
+
+    <!-- Dropdown меню Tutorials -->
+    <button mat-button routerLink="/tutorials">Обладнання</button>
+
+
+    <!-- Кнопки аутентификации -->
+    <button
+      mat-raised-button
+      *ngIf="!authService.isLoggedIn"
+      color="accent"
+      class="btn-auth"
+      (click)="navigateToSignIn()">
+      Увійти як адмін
+    </button>
+    <button
+      mat-raised-button
+      *ngIf="authService.isLoggedIn"
+      color="warn"
+      class="btn-auth"
+      (click)="logout()">
+      Logout
+    </button>
+  </mat-toolbar>
+
+  <div class="my-container mt-3">
+    <router-outlet></router-outlet>
+  </div>
+</div>

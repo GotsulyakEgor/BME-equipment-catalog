@@ -1,0 +1,131 @@
+/* Основная карточка */
+.main-card {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+/* Заголовок */
+.page-title {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Форма */
+.form-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+}
+
+/* Поля формы */
+.form-item {
+  width: 100%;
+}
+
+.form-item textarea {
+  resize: none;
+  font-size: 16px;
+}
+
+/* Блок с изображением */
+.image-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+/* Превью изображения */
+.photo-preview {
+  width: 400px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+/* Блок с кнопками */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.actions button {
+  min-width: 120px;
+  font-size: 16px;
+}
+
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* Адаптивность для планшетов (до 768px) */
+@media (max-width: 768px) {
+  .main-card {
+    padding: 20px;
+  }
+
+  .page-title {
+    font-size: 22px;
+  }
+
+  .photo-preview {
+    width: 300px;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+}
+
+/* Адаптивность для телефонов (до 475px) */
+@media (max-width: 475px) {
+  .main-card {
+    padding: 15px;
+  }
+
+  .page-title {
+    font-size: 20px;
+  }
+
+  .form-item input,
+  .form-item textarea {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .photo-preview {
+    width: 100%;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .actions button {
+    width: 100%;
+    font-size: 14px;
+  }
+}
