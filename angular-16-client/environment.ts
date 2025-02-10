@@ -1,4 +1,4 @@
 export const environment = {
-  apiEndpoint: 'http://localhost:8080',
+  apiEndpoint: 'https://bme-equipment-catalog.onrender.com/',
   //apiEndpoint: 'http://localhost:8080',
 };
