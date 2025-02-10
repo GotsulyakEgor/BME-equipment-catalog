@@ -1,14 +1,15 @@
 const db = require("../models");
 const items = db.tutorials;
 const upload = require("../middleware/upload");
+require("dotenv").config();
 
 // Login method for checking credentials
 exports.login = (req, res) => {
     const { username, password } = req.body;
 
-    // Временные креды для демонстрации (позже можно заменить на базу данных)
-    const adminUsername = "adminNure";
-    const adminPassword = "bmeTheBest2025";
+    // Загружаем данные из .env
+    const adminUsername = process.env.ADMIN_USERNAME;
+    const adminPassword = process.env.ADMIN_PASSWORD;
 
     // Проверка введенных данных
     if (username === adminUsername && password === adminPassword) {
